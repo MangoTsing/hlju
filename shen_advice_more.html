@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -38,7 +39,7 @@
 	var manageid=window.location.search.split("&")[0].substring(10);
 	console.log(window.location.search.split("&"))
 
-	ajax("get","http://118.89.216.40/db_union/plus/selectAllState.do?stateid=7&count="+count,"",function(data){
+	ajax("get","/db_union/plus/selectAllState.do?stateid=7&count="+count,"",function(data){
 		var data=JSON.parse(data);
 		console.log(data)
 		document.getElementById("total").innerHTML=data[data.length-1].totalCount;
@@ -59,27 +60,27 @@
 	var oNext=document.getElementById("next");
 	
 	oLast.onclick=function(){
-		ajax("get","http://118.89.216.40/db_union/plus/selectAllState.do?stateid=7&count="+parseInt(totalPage),"",function(data){		
+		ajax("get","/db_union/plus/selectAllState.do?stateid=7&count="+parseInt(totalPage),"",function(data){		
 			getData(data);
 			self.location="./shen_advice_more.html?id="+manageid+"&page="+parseInt(totalPage);
 		});
 	}		
 	oNext.onclick=function(){
 		if(page<totalPage){
-			ajax("get","http://118.89.216.40/db_union/plus/selectAllState.do?stateid=7&count="+(parseInt(page)+1),"",function(data){		
+			ajax("get","/db_union/plus/selectAllState.do?stateid=7&count="+(parseInt(page)+1),"",function(data){		
 				getData(data);
 				self.location="./shen_advice_more.html?id="+manageid+"&page="+parseInt(page);
 			});
 		}
 	}	
 	oFirst.onclick=function(){	
-		ajax("get","http://118.89.216.40/db_union/plus/selectAllState.do?stateid=7&count=1","",function(data){		
+		ajax("get","/db_union/plus/selectAllState.do?stateid=7&count=1","",function(data){		
 			getData(data);
 			self.location="./shen_advice_more.html?id="+manageid+"&page=1";
 		});
 	}
 	oPrev.onclick=function(){
-		ajax("get","http://118.89.216.40/db_union/plus/selectAllState.do?stateid=7&count=="+(parseInt(page)-1),"",function(data){			
+		ajax("get","/db_union/plus/selectAllState.do?stateid=7&count=="+(parseInt(page)-1),"",function(data){			
 			getData(data);
 			self.location="./shen_advice_more.html?id="+manageid+"&page="+parseInt(page);
 		});

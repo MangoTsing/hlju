@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" ><html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
@@ -129,7 +129,7 @@
     
 
     oSubmitBtn.onclick=function(){
-        ajax("post","http://118.89.216.40/db_union/adviceController/insertAdvice.do","title="+oTitle.value+"&departmentId="+oSelectedID.value+"&adviceContent="+oTextarea.value,function(){
+        ajax("post","/db_union/adviceController/insertAdvice.do","title="+oTitle.value+"&departmentId="+oSelectedID.value+"&adviceContent="+oTextarea.value,function(){
             alert("提交成功");
         })
     }

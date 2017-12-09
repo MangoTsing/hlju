@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -68,7 +69,7 @@
 		</div>
 	<div class="footer">
 		<div class="footer_con">
-			<img class="img" src="http://118.89.216.40/db_union/image/9D953F7497390E8724306BD9841_84EDB1FF_BB07C.png" height="69" width="69">	
+			<img class="img" src="/db_union/image/9D953F7497390E8724306BD9841_84EDB1FF_BB07C.png" height="69" width="69">	
 			<p>		
 				版权所有:黑龙江大学 黑ICP备14005517号-5<br> 查号台:0451-86608114 传真：+86 0451-86661259<br>通信地址：中国·黑龙江省哈尔滨市南岗区学府路74号 邮编：150080
 			</p>
@@ -88,7 +89,7 @@
 		document.getElementById("zhuanAdvice").href="zhuanAdvice_more.html?id="+k+"&page=1";
 		document.getElementById("index").href="index.html?DEPATMENTID="+k;
         
-        ajax('get','http://118.89.216.40/db_union/adviceController/showAdvice.do','ADVICE_ID='+c ,function(data){
+        ajax('get','/db_union/adviceController/showAdvice.do','ADVICE_ID='+c ,function(data){
             var data=JSON.parse(data);
 			console.log(data)
 			var oMain=document.getElementById("main");

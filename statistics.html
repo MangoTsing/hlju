@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -124,44 +125,44 @@
     }
     
         var a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0;
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=0","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=0","",function(data){
     		document.getElementById("type1").innerHTML=data;
             a1=parseInt(data)
 
     	});//附议
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=-1","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=-1","",function(data){
     		document.getElementById("type2").innerHTML=data;
             a2=parseInt(data)
     	});//审核
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=4","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=4","",function(data){
     		document.getElementById("type3").innerHTML=data;
             a3=parseInt(data)
     	});//部门回复
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=2","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=2","",function(data){
     		document.getElementById("type4").innerHTML=data;
             a4=parseInt(data)
     	});//满意
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=3","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=3","",function(data){
     		document.getElementById("type5").innerHTML=data;
             a5=parseInt(data)
     	});//不满意
-        ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=5","",function(data){
+        ajax("get","/db_union/adviceController/countAllState.do?stateid=5","",function(data){
             document.getElementById("type6").innerHTML=data;
             a6=parseInt(data)
         });//不立案
-        ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=6","",function(data){
+        ajax("get","/db_union/adviceController/countAllState.do?stateid=6","",function(data){
             document.getElementById("type8").innerHTML=data;
             a9=parseInt(data)
         });
-        ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=7","",function(data){
+        ajax("get","/db_union/adviceController/countAllState.do?stateid=7","",function(data){
             document.getElementById("type9").innerHTML=data;
             a10=parseInt(data)
         });
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAllState.do?stateid=1","",function(data){
+    	ajax("get","/db_union/adviceController/countAllState.do?stateid=1","",function(data){
     		document.getElementById("type7").innerHTML=data;
             a7=parseInt(data)
     	});//待评价
-    	ajax("get","http://118.89.216.40/db_union/adviceController/countAll.do","",function(data){
+    	ajax("get","/db_union/adviceController/countAll.do","",function(data){
     		document.getElementById("total").innerHTML=data;
             a8=parseInt(data)
     	});// 

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -64,7 +65,7 @@
 		oNext.onclick=function(){
 			++c;
 			oUl.innerHTML='';
-			ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
+			ajax('get','/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
 				var d=JSON.parse(data);
 				console.log(d)
 				oTotal.innerHTML=d[d.length-1].totalCount;
@@ -83,7 +84,7 @@
 					console.log(d[1].title);
 				for(var i=0;i<d.length-1;i++){
                     var date = new Date(d[i].adviceTime);
-					oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="http://118.89.216.40/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
+					oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
 			}
 			});	
 		};
@@ -91,7 +92,7 @@
 			oUl.innerHTML='';
 			c=c-1;
 			
-			ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
+			ajax('get','/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
 				var d=JSON.parse(data);
 				oTotal.innerHTML=d[d.length-1].totalCount;
 				oNowPage.innerHTML=d[d.length-1].currentPage;
@@ -110,14 +111,14 @@
 					console.log(d[1].title);
 				for(var i=0;i<d.length-1;i++){
                     var date = new Date(d[i].adviceTime);
-                    oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="http://118.89.216.40/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
+                    oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
 			}
 				
 			});	
 		};
 
 
-		ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT=1',function(data){
+		ajax('get','/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT=1',function(data){
 			oUl.innerHTML='';
 			var d=JSON.parse(data);
 			console.log(d)
@@ -146,7 +147,7 @@
 		oFirst.onclick=function(){
 			oUl.innerHTML='';
 			c=1;
-			ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT=1',function(data){
+			ajax('get','/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT=1',function(data){
 				var d=JSON.parse(data);
 			oTotal.innerHTML=d[d.length-1].totalCount;
 			oNowPage.innerHTML=d[d.length-1].currentPage;
@@ -164,14 +165,14 @@
 				console.log(d[1].title);
 			for(var i=0;i<d.length-1;i++){
                 var date = new Date(d[i].adviceTime);
-                oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="http://118.89.216.40/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
+                oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
 			}
 			});
 		}
 		oLast.onclick=function(){
 			oUl.innerHTML='';
 			c=TotalPage;
-			ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
+			ajax('get','/db_union/adviceController/findAdviceByDepartmentID.do','DEPRTMENTID='+id+'&COUNT='+c,function(data){
 				var d=JSON.parse(data);
 			oTotal.innerHTML=d[d.length-1].totalCount;
 			oNowPage.innerHTML=d[d.length-1].currentPage;
@@ -189,7 +190,7 @@
 				console.log(d[1].title);
 			for(var i=0;i<d.length-1;i++){
                 var date = new Date(d[i].adviceTime);
-                oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="http://118.89.216.40/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
+                oUl.innerHTML+='<li ><span class=\"dots\">·</span><a href="/db_union/reply.html?id='+d[i].adviceId+'&department='+id+'">'+d[i].title+'</a><span>'+[date.getFullYear(), date.getMonth()+1, date.getDate()].join("/")+'</span></li>';
 			}
 			});
 		}

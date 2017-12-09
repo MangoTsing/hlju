@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -82,7 +83,7 @@ window.onload=function(){
 	document.getElementById("process").href="process.html?id="+c;
 	document.getElementById("index").href="index.html?COMMITTEEID="+c;
 	var omyPoint=document.getElementsByClassName('myPoint');
-	ajax('get','http://118.89.216.40/db_union/adviceController/findAdviceByCommitteeID.do','COMMITTEEID='+c+'&COUNT=0',function(data){
+	ajax('get','/db_union/adviceController/findAdviceByCommitteeID.do','COMMITTEEID='+c+'&COUNT=0',function(data){
 	  var data =JSON.parse(data);
 	  console.log(data)
 	  data.length=data.length>8?9:data.length

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -83,7 +84,7 @@
     }else{
         document.getElementById("index").href="index.html"
     }
-	ajax("get","http://118.89.216.40/db_union/question/findQuestionById.do?id="+pid,"",function(data){
+	ajax("get","/db_union/question/findQuestionById.do?id="+pid,"",function(data){
 		var data=JSON.parse(data);
 		console.log(data)
 		var oMain=document.getElementById("main");

@@ -200,7 +200,7 @@
       };
     oLogin.onclick=function(){
       if(oUsername.value){
-        ajax('get','http://118.89.216.40/db_union/committeeController/login.do','COMMITTEEID='+oUsername.value+'&PASSWORD='+oPassword.value,function(data){
+        ajax('get','/db_union/committeeController/login.do','COMMITTEEID='+oUsername.value+'&PASSWORD='+oPassword.value,function(data){
             var d = JSON.parse(data);
             if(d.FLAG=='1'){
                 alert('登陆成功');
@@ -215,7 +215,7 @@
         });
       }
       else if(oUsername1.value){
-        ajax('get','http://118.89.216.40/db_union/departmentController/login.do','DEPATMENTID='+oUsername1.value+'&PASSWORD='+oPassword.value,function(data){
+        ajax('get','/db_union/departmentController/login.do','DEPATMENTID='+oUsername1.value+'&PASSWORD='+oPassword.value,function(data){
           var d = JSON.parse(data);
           if(d.FLAG=='1'){
               alert('部门登陆成功');
@@ -228,7 +228,7 @@
         });
       }
       else if(oUsername6.value){
-        ajax('get','http://118.89.216.40/db_union/leader/login.do','id='+oUsername6.value+'&password='+oPassword.value,function(data){
+        ajax('get','/db_union/leader/login.do','id='+oUsername6.value+'&password='+oPassword.value,function(data){
           var d = JSON.parse(data);
           console.log(d)
           if(d=='1'){
@@ -241,7 +241,7 @@
           }
         });
       }else if(oUsername5.value){
-        ajax('get','http://118.89.216.40/db_union/manageController/login.do','manageid='+oUsername5.value+'&password='+oPassword.value,function(data){
+        ajax('get','/db_union/manageController/login.do','manageid='+oUsername5.value+'&password='+oPassword.value,function(data){
           var d=JSON.parse(data);
             if(d.info=='1'){
               alert('提案委登陆成功');
@@ -255,7 +255,7 @@
               
         });
       }else{
-        ajax("post",'http://118.89.216.40/db_union/team/login.do','id='+oUsername9.value+'&password='+oPassword.value,function(data){
+        ajax("post",'/db_union/team/login.do','id='+oUsername9.value+'&password='+oPassword.value,function(data){
             console.log(data)
             if(data==1){
               alert("代表团团长登陆成功！")

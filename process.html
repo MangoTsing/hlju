@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -78,7 +79,7 @@
        	 }
      }
  	 var m=1;
-     ajax("get","http://118.89.216.40/db_union/processController/createProcess.do?USERID="+d,"",function(data){
+     ajax("get","/db_union/processController/createProcess.do?USERID="+d,"",function(data){
         //var oNew=document.getElementById("new").setAttribute("href","./writeAdvice.html?userId="+data[0].committeeName);
     	var data=JSON.parse(data);
         console.log(data)
@@ -140,7 +141,7 @@
         			}else if(aInput[1].checked){
         				a=3;
         			}
-        			ajax("get","http://118.89.216.40/db_union/adviceController/updataAdviceStates.do?adviceid="+arr[j].adviceId+"&stateid="+a,"",function(data){
+        			ajax("get","/db_union/adviceController/updataAdviceStates.do?adviceid="+arr[j].adviceId+"&stateid="+a,"",function(data){
                         console.log(data)
         				alert("回复成功！");
         				location.reload();

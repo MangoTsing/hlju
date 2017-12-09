@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -73,7 +74,7 @@
 	var man=dat[0].substring(10);
 	var page=dat[1].substring(5);
     var id=dat[2].substring(3);
-	ajax("get","http://118.89.216.40/db_union/adviceController/showAdvice.do?ADVICE_ID="+id,"",function(data){
+	ajax("get","/db_union/adviceController/showAdvice.do?ADVICE_ID="+id,"",function(data){
 		var data=JSON.parse(data);
 		var date = new Date(data.adviceTime);
 		var oMain=document.getElementById("main");
@@ -91,11 +92,11 @@
 			var stateId=document.getElementById("stateId").value;
 			var departId=document.getElementById("departId").value;
             if(stateId==0){
-                ajax('post','http://118.89.216.40/db_union/plus/setNewCount.do?id='+id+'&dmid='+departId+'&adnum='+num,'',function(data){
+                ajax('post','/db_union/plus/setNewCount.do?id='+id+'&dmid='+departId+'&adnum='+num,'',function(data){
                     self.location="./shen_advice_more.html?manageid="+man+"&page="+page;
                 })
             }else{
-                ajax("get","http://118.89.216.40/db_union/adviceController/updataAdviceSH.do?adviceid="+id+"&num="+num+"&stateid="+stateId+"&departid="+departId,"",function(data){
+                ajax("get","/db_union/adviceController/updataAdviceSH.do?adviceid="+id+"&num="+num+"&stateid="+stateId+"&departid="+departId,"",function(data){
                     alert("提交成功！");
                     self.location="./shen_advice_more.html?manageid="+man+"&page="+page;
                 })

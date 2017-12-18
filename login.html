@@ -145,9 +145,13 @@
                oUsername8.style.display ='none';
           }
       };
-     
+     // <option value="0">代表登陆</option> 
+     //            <option value="4">代表团登陆</option> 
+     //            <option value="1">部门登陆</option> 
+     //            <option value="2">提案委登陆</option> 
+     //            <option value="3">领导登陆</option> 
     oLogin.onclick=function(){
-      if(oUsername.value){
+      if(oSelect.value=='0'){
         ajax('get','/db_union/committeeController/login.do','COMMITTEEID='+oUsername.value+'&PASSWORD='+oPassword.value,function(data){
             var d = JSON.parse(data);
             if(d.FLAG=='1'){
@@ -162,7 +166,7 @@
 
         });
       }
-      else if(oUsername1.value){
+      else if(oSelect.value=='1'){
         ajax('get','/db_union/departmentController/login.do','DEPATMENTID='+oUsername1.value+'&PASSWORD='+oPassword.value,function(data){
           var d = JSON.parse(data);
           if(d.FLAG=='1'){
@@ -175,7 +179,7 @@
           }
         });
       }
-      else if(oUsername6.value){
+      else if(oSelect.value=='3'){
         ajax('get','/db_union/leader/login.do','id='+oUsername6.value+'&password='+oPassword.value,function(data){
           var d = JSON.parse(data);
           console.log(d)
@@ -188,7 +192,7 @@
               alert('密码错误');
           }
         });
-      }else if(oUsername5.value){
+      }else if(oSelect.value=='2'){
         ajax('get','/db_union/manageController/login.do','manageid='+oUsername5.value+'&password='+oPassword.value,function(data){
           var d=JSON.parse(data);
             if(d.info=='1'){

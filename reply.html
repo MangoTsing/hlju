@@ -104,15 +104,36 @@
 	        var oTextarea=document.getElementById("textarea")
 	        var oTextarea1=document.getElementById("textarea1")
 	        oBtn.onclick=function(){
-				ajax('post','/db_union/replyController/insertReply.do?adviceId='+c+'&replyContent='+oTextarea.value+'&replyState=0&leaderReply='+oTextarea1.value,'',function(data){
-				    var d =JSON.parse(data);
-				    if(d){
-	                    alert('回复成功');
-				        self.location='./newAdvice.html?id='+k+'&page=1';
-					}else{
-	                    alert('回复失败');
+				// ajax('post','/db_union/replyController/insertReply.do?adviceId='+c+'&replyContent='+oTextarea.value+'&replyState=0&leaderReply='+oTextarea1.value,'',function(data){
+				 //    var d =JSON.parse(data);
+				 //    if(d){
+	    //                 alert('回复成功');
+				 //        self.location='./newAdvice.html?id='+k+'&page=1';
+					// }else{
+	    //                 alert('回复失败');
+					// }
+				// })
+				$.ajax({
+					url: '/db_union/replyController/insertReply.do',
+					type: 'POST',
+					dataType: '',
+					data: {adviceId: c, replyContent:oTextarea.value, replyState:0, leaderReply:oTextarea1.value},
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					success:function(data){
+							var d =JSON.parse(data);
+						    if(d){
+			                    alert('回复成功');
+						        self.location='./newAdvice.html?id='+k+'&page=1';
+							}else{
+			                    alert('回复失败');
+							}
+					},
+					error:function(data){
+						console.log(data);
 					}
-				})
+					
+				});
+				
 			}
         });
 

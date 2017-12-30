@@ -16,6 +16,7 @@
 	<div class="header"></div>
 	<div class="contain">
 		<div id="main">
+		<a href="./login.html" style="color:red;">返回登陆页面</a>
 			<div class="position">当前位置：主页 >> 提案管理员 >> 待审提案</div>
 			<div class="newsList">
 				<ul></ul>
@@ -42,7 +43,7 @@
 
 	ajax("get","/db_union/plus/selectAllState.do?stateid=7&count="+count,"",function(data){
 		var data=JSON.parse(data);
-		console.log(data)
+		console.log(data);
 		document.getElementById("total").innerHTML=data[data.length-1].totalCount;
 		document.getElementById("nowPage").innerHTML=data[data.length-1].currentPage;
 		document.getElementById("totalPage").innerHTML=data[data.length-1].totalPage;

@@ -105,7 +105,33 @@
         "<tr><td>提案上报时间</td><td colspan=\"5\">"+[date.getFullYear(), date.getMonth()+1, date.getDate()].join('/')+"</td></tr></tbody></table></br><input style=\"width:100px;height:40px;margin-left:900px;\" type=\"button\" value=\"我附议\" id=\"btn\" />";
 		
 		var oBtn=document.getElementById("btn");
-		if(userId!="NULL"&&userId.length===7&&userId!==data.userId){
+        var adv=data.adviceAgree;
+        var reg=new RegExp(" ","g");
+        var advlength=adv.match(reg).length+1;
+
+        
+
+        ajax("get","/db_union/committeeController/name.do?COMMITTEE_ID="+userId,"",function(data){
+                var username1=data.name;
+                var switch1;
+                            //登陆人的名字
+                    for (var i = 0; i < advlength; i++) {
+                           if (username1===adv.split(" ")[i] ) {
+                                alert('您已经附议过，请不要多次附议');
+                                console.log('第一阶段Ok');
+                                switch1=true;
+                                break;
+                           } 
+                        }
+                        console.log("第二阶段Ok")
+                });
+        //请求登陆人name
+        if(switch1){
+            alert('最终封印解除');
+        }
+		if(userId!="NULL"&&userId.length===7&&userId!==data.userId&&!switch1){
+        
+            
 			oBtn.onclick=function(){
 				data.count=data.count+1;
 				document.getElementById("person").innerHTML=data.count;
